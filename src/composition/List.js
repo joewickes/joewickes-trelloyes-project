@@ -3,19 +3,19 @@ import './List.css';
 import Card from './Card';
 
 class ListClass extends React.Component {
-  static defaultProps = {
-    header: 'Title',
-    cards: [{
-      id: '',
-      title: '',
-      content: '',
-    },{
-
-    }]
-  };
   
+  newRandomCard = () => {
+    const id = Math.random().toString(36).substring(2, 4)
+      + Math.random().toString(36).substring(2, 4);
+    return {
+      id,
+      title: `Random Card ${id}`,
+      content: 'lorem ipsum',
+    };
+  }
+
   render() {
-    const {header, cards} = this.props;
+    const {id, header, cards, deleteCard, addRandomCard} = this.props;
 
     return (
       <section className="List">
@@ -23,8 +23,8 @@ class ListClass extends React.Component {
           <h2>{header}</h2>
         </header>
         <div className="List-cards">
-          {cards.map((card) => <Card key={card.id} title={card.title} content={card.content} />)}
-          <button type="button" className="List-add-button">
+          {cards.map((card) => <Card key={card.id} id={card.id} title={card.title} content={card.content} deleteCard={deleteCard} />)}
+          <button id={id} type="button" className="List-add-button" onClick={(e) => addRandomCard(e.target.id, this.newRandomCard())}>
             + Add Random Card
           </button>
         </div>

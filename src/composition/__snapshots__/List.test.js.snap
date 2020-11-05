@@ -18,6 +18,8 @@ exports[`List component renders the Card as expected 1`] = `
       className="Card"
     >
       <button
+        id={1}
+        onClick={[Function]}
         type="button"
       >
         delete
@@ -33,6 +35,8 @@ exports[`List component renders the Card as expected 1`] = `
       className="Card"
     >
       <button
+        id={2}
+        onClick={[Function]}
         type="button"
       >
         delete
@@ -46,6 +50,7 @@ exports[`List component renders the Card as expected 1`] = `
     </div>
     <button
       className="List-add-button"
+      onClick={[Function]}
       type="button"
     >
       + Add Random Card
